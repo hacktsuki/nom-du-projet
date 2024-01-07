@@ -24,6 +24,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/profil', function () {
+    return view('profil');
+});
+
+
 Route::get('/service', function () {
     return view('service');
 });
