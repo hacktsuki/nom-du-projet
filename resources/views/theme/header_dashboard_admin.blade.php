@@ -241,12 +241,12 @@
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="{{ url('/add_user') }}">
               <i class="bi bi-circle"></i><span>Créer un consultant</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="{{ url('/add_user') }}">
               <i class="bi bi-circle"></i><span>Modifier un consultant</span>
             </a>
           </li>
@@ -264,12 +264,12 @@
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
+            <a href="{{ url('/add_user') }}">
               <i class="bi bi-circle"></i><span>Créer un client</span>
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
+            <a href="{{ url('/add_user') }}">
               <i class="bi bi-circle"></i><span>Modifier un client</span>
             </a>
           </li>

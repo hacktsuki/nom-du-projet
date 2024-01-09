@@ -69,6 +69,10 @@ Route::get('/register_page', function () {
     return view('register_page');
 });
 
+Route::get('/add_user', function () {
+    return view('add_user');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
