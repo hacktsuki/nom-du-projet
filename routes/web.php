@@ -28,6 +28,10 @@ Route::get('/profil', function () {
     return view('profil');
 });
 
+Route::get('/dashbord_consultant', function () {
+    return view('dashbord_consultant');
+});
+
 
 Route::get('/service', function () {
     return view('service');
