@@ -275,27 +275,28 @@
           </li>
         </ul>
       </li><!-- End Forms Nav -->
-
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Dons pour les consultants</span>
+          <i class="bi bi-journal-text"></i><span>Donnations</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Dons pour la plateforme</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Dons pour les consultants</span>
-        </a>
-      </li><!-- End Tables Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Moyens de paiement</span>
-        </a>
-      </li><!-- End Tables Nav -->
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ url('/liste_don_consultants') }}">
+              <i class="bi bi-circle"></i><span>Dons pour les consultants</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url('/liste_don_plateforme') }}">
+              <i class="bi bi-circle"></i><span>Dons pour la plateforme</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Moyens de paiement</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->

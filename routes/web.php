@@ -73,6 +73,14 @@ Route::get('/add_user', function () {
     return view('add_user');
 });
 
+Route::get('/liste_don_consultants', function () {
+    return view('liste_don_consultants');
+});
+
+Route::get('/liste_don_plateforme', function () {
+    return view('liste_don_plateforme');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
