@@ -41,6 +41,45 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/dashboard_consultant', function () {
+    return view('dashboard_consultant');
+});
+
+Route::get('/dashboard_client', function () {
+    return view('dashboard_client');
+});
+
+Route::get('/dashboard_admin', function () {
+    return view('dashboard_admin');
+});
+
+Route::get('/user_profil', function () {
+    return view('user_profil');
+});
+
+Route::get('/admin_profil', function () {
+    return view('_profil');
+});
+
+Route::get('/login_page', function () {
+    return view('login_page');
+});
+
+Route::get('/register_page', function () {
+    return view('register_page');
+});
+
+Route::get('/add_user', function () {
+    return view('add_user');
+});
+
+Route::get('/liste_don_consultants', function () {
+    return view('liste_don_consultants');
+});
+
+Route::get('/liste_don_plateforme', function () {
+    return view('liste_don_plateforme');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
