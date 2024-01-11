@@ -227,54 +227,18 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Consultations</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Gestion des utilisateurs</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Toutes les consultations</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Créer une consultations</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('/add_user') }}">
-              <i class="bi bi-circle"></i><span>Créer un consultant</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('/add_user') }}">
-              <i class="bi bi-circle"></i><span>Modifier un consultant</span>
+            <a href="{{ route('users.index') }}">
+              <i class="bi bi-circle"></i><span>Liste des utilisateurs</span>
             </a>
           </li>
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Clients</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Tous les clients</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('/add_user') }}">
-              <i class="bi bi-circle"></i><span>Créer un client</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('/add_user') }}">
-              <i class="bi bi-circle"></i><span>Modifier un client</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Donnations</span><i class="bi bi-chevron-down ms-auto"></i>

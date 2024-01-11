@@ -141,3 +141,6 @@ Route::middleware('auth')->group(function () {
         'users' => UserController::class,
     ]);
 });
+
+// Route pour la gestion des utilisateurs
+Route::resource('users', UserController::class)->middleware('auth');
