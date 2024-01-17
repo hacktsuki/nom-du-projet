@@ -26,8 +26,8 @@ class RoleController extends Controller
      */
     public function index(): View
     {
-        return view('roles.index', [
-            'roles' => Role::orderBy('id','DESC')->paginate(3)
+        return view('users.roles.index', [
+            'roles' => Role::orderBy('id','DESC')->paginate(5)
         ]);
     }
 
@@ -36,7 +36,7 @@ class RoleController extends Controller
      */
     public function create(): View
     {
-        return view('roles.create', [
+        return view('users.roles.create', [
             'permissions' => Permission::get()
         ]);
     }

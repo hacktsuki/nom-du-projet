@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Admin Dashboard - Ajouter un utilisateur</title>
+    <title>Admin Dashboard - Modifier un utilisateur</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,15 +50,17 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Nouvel Utilisateur</h5>
+                            <h5 class="card-title">Modifier un Utilisateur</h5>
 
                             <!-- General Form Elements -->
-                            <form action="{{ route('users.store') }}" method="POST">
+                            <form action="{{ route('users.update', $user->id) }}" method="POST">
                                 @csrf
+                                @method("PUT")
+
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Nom et Prenom</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="name" class="form-control" wfd-id="id1">
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" wfd-id="id1" id="name" value="{{ $user->name }}">
                                         @if ($errors->has('name'))
                                             <span class="text-danger">{{ $errors->first('name') }}</span>
                                         @endif
@@ -67,7 +69,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="email" name="email" class="form-control" wfd-id="id2">
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" wfd-id="id2" id="email" value="{{ $user->email }}">
                                         @if ($errors->has('email'))
                                             <span class="text-danger">{{ $errors->first('email') }}</span>
                                         @endif
@@ -76,7 +78,7 @@
                                 <div class="row mb-3">
                                     <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="password" class="form-control" wfd-id="id3">
+                                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" wfd-id="id3">
                                         @if ($errors->has('password'))
                                             <span class="text-danger">{{ $errors->first('password') }}</span>
                                         @endif
@@ -89,17 +91,15 @@
                                         <select class="form-select @error('roles') is-invalid @enderror" multiple aria-label="Roles" id="roles" name="roles[]">
                                             @forelse ($roles as $role)
 
-                                                @if ($role != 'Super Admin')
-                                                    <option value="{{ $role }}"
-                                                        {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
-                                                        {{ $role }}
-                                                    </option>
+                                                @if ($role!='Super Admin')
+                                                <option value="{{ $role }}" {{ in_array($role, $userRoles ?? []) ? 'selected' : '' }}>
+                                                    {{ $role }}
+                                                </option>
                                                 @else
                                                     @if (Auth::user()->hasRole('Super Admin'))
-                                                        <option value="{{ $role }}"
-                                                            {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
-                                                            {{ $role }}
-                                                        </option>
+                                                    <option value="{{ $role }}" {{ in_array($role, $userRoles ?? []) ? 'selected' : '' }}>
+                                                        {{ $role }}
+                                                    </option>
                                                     @endif
                                                 @endif
 
@@ -113,7 +113,7 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                        <button type="submit" class="btn btn-primary">Modifier</button>
                                     </div>
                                 </div>
 

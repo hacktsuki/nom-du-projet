@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Admin Dashboard - Ajouter un utilisateur</title>
+    <title>Admin Dashboard - Ajouter un role</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,13 +50,13 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Nouvel Utilisateur</h5>
+                            <h5 class="card-title">Nouveau role</h5>
 
                             <!-- General Form Elements -->
-                            <form action="{{ route('users.store') }}" method="POST">
+                            <form action="{{ route('roles.store') }}" method="POST">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Nom et Prenom</label>
+                                    <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="name" class="form-control" wfd-id="id1">
                                         @if ($errors->has('name'))
@@ -64,52 +64,26 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="mb-3 row">
+                                    <label for="permissions"
+                                        class="col-sm-2 col-form-label">Permissions</label>
                                     <div class="col-sm-10">
-                                        <input type="email" name="email" class="form-control" wfd-id="id2">
-                                        @if ($errors->has('email'))
-                                            <span class="text-danger">{{ $errors->first('email') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" name="password" class="form-control" wfd-id="id3">
-                                        @if ($errors->has('password'))
-                                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Roles</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select @error('roles') is-invalid @enderror" multiple aria-label="Roles" id="roles" name="roles[]">
-                                            @forelse ($roles as $role)
-
-                                                @if ($role != 'Super Admin')
-                                                    <option value="{{ $role }}"
-                                                        {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
-                                                        {{ $role }}
-                                                    </option>
-                                                @else
-                                                    @if (Auth::user()->hasRole('Super Admin'))
-                                                        <option value="{{ $role }}"
-                                                            {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
-                                                            {{ $role }}
-                                                        </option>
-                                                    @endif
-                                                @endif
-
+                                        <select class="form-select @error('permissions') is-invalid @enderror" multiple
+                                            aria-label="Permissions" id="permissions" name="permissions[]"
+                                            style="height: 210px;">
+                                            @forelse ($permissions as $permission)
+                                                <option value="{{ $permission->id }}"
+                                                    {{ in_array($permission->id, old('permissions') ?? []) ? 'selected' : '' }}>
+                                                    {{ $permission->name }}
+                                                </option>
                                             @empty
-
                                             @endforelse
                                         </select>
+                                        @if ($errors->has('permissions'))
+                                            <span class="text-danger">{{ $errors->first('permissions') }}</span>
+                                        @endif
                                     </div>
                                 </div>
-
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">

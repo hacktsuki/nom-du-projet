@@ -235,6 +235,11 @@
               <i class="bi bi-circle"></i><span>Liste des utilisateurs</span>
             </a>
           </li>
+          <li>
+            <a href="{{ route('roles.index') }}">
+              <i class="bi bi-circle"></i><span>Liste des roles</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Components Nav -->
 
