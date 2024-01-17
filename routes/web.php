@@ -81,6 +81,9 @@ Route::get('/liste_don_plateforme', function () {
     return view('liste_don_plateforme');
 });
 
+Route::get('/audio-call/{userId}', 'AudioCallController@index');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
