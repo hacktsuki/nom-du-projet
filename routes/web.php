@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\DonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,6 +141,8 @@ Route::middleware('auth')->group(function () {
         'roles' => RoleController::class,
         'users' => UserController::class,
     ]);
+
+    Route::get('donations', [DonationController::class, 'index'])->name('donations.index');
 });
 
 // Route pour la gestion des utilisateurs

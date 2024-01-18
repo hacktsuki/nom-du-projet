@@ -20,9 +20,8 @@ class PermissionSeeder extends Seeder
             'create-user',
             'edit-user',
             'delete-user',
-            'create-consultant',
-            'edit-consultant',
-            'delete-consultant'
+            'list-donations-consultant',
+            'list-donations-platform'
          ];
 
           // Looping and Inserting Array's Permissions into Permission Table

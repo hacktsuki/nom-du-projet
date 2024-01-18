@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
     {
         $superAdmin = Role::create(['name' => 'Super Admin']);
         $admin = Role::create(['name' => 'Admin']);
-        $Consultantmanager = Role::create(['name' => 'Consultant Manager']);
+        $Consultant = Role::create(['name' => 'Consultant']);
 
         $superAdmin->givePermissionTo([
             'create-role',
@@ -24,24 +24,20 @@ class RoleSeeder extends Seeder
             'create-user',
             'edit-user',
             'delete-user',
-            'create-consultant',
-            'edit-consultant',
-            'delete-consultant'
+            'list-donations-consultant',
+            'list-donations-platform'
         ]);
 
         $admin->givePermissionTo([
             'create-user',
             'edit-user',
             'delete-user',
-            'create-consultant',
-            'edit-consultant',
-            'delete-consultant'
+            'list-donations-consultant',
+            'list-donations-platform'
         ]);
 
-        $Consultantmanager->givePermissionTo([
-            'create-consultant',
-            'edit-consultant',
-            'delete-consultant'
+        $Consultant->givePermissionTo([
+            'list-donations-consultant'
         ]);
     }
 }
